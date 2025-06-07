@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to top, #5EEAD4 0%, rgba(14, 14, 17) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.login-container {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 60px 50px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.logo img {
+    max-width: 50%;
+    height: auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 18px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: #aaa;
+    font-size: 16px;
+}
+
+.form-input:focus {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 2px rgba(64, 224, 208, 0.3);
+    transform: translateY(-2px);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(45deg, #40E0D0, #20B2AA);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.login-btn:hover {
+    background: linear-gradient(45deg, #20B2AA, #008B8B);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(64, 224, 208, 0.3);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+.forgot-password {
+    text-align: center;
+}
+
+.forgot-password a {
+    color: #40E0D0;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #fbffff;
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 40px 30px;
+        border-radius: 15px;
+    }
+
+    .logo img {
+        max-width: 150px;
+    }
+}
+
+.login-container {
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
