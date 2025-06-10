@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
     <title>SITEVAA - Creative Digital Agency</title>
 </head>
+
 <body>
     <div class="container">
         <nav class="navbar">
             <div class="nav-content">
                 <div class="logo">
-                    <img src="./images/logonavbar.png" alt="SITEVAA Logo">
+                    <a href="#"><img src="./images/logonavbar.png" alt="SITEVAA Logo"></a>
                 </div>
                 <ul class="nav-links">
                     <li><a href="#services">Services</a></li>
@@ -28,95 +30,226 @@
                 <h3 class="hero-title">WE ARE</h3>
                 <h1 class="hero-brand">SITEVAA</h1>
                 <p class="hero-description">
-                    We turn your ideas into reality with creativity and precision. Let's work together to bring your vision to life.
+                    We turn your ideas into reality with creativity and precision. Let's work together to bring your
+                    vision to life.
                 </p>
                 <a href="#contact" class="start-project-btn">Start A Project</a>
             </div>
-           <div class="hero-visual">
+            <div class="hero-visual">
                 <img src="./images/Full_trans 3.png" alt="SITEVAA Hero Image" class="hero-img">
             </div>
         </section>
         <section class="services-wrapper" id="services">
-        <div class="services-section" >
-            <div class="services-header">
-                <div class="services-tag">WHAT WE DO</div>
-                <div class="services-title-container">
-                    <h2 class="services-title">
-                        We transform your ideas into unique<br>
-                        web projects that inspires both you<br>
-                        and your customers.
-                    </h2>
-                    <span class="highlight">SERVICES</span>
+            <div class="services-section">
+                <div class="services-header">
+                    <div class="services-tag">WHAT WE DO</div>
+                    <div class="services-title-container">
+                        <h2 class="services-title">
+                            We transform your ideas into unique<br>
+                            web projects that inspire both you<br>
+                            and your customers.
+                        </h2>
+                        <span class="highlight">SERVICES</span>
+                    </div>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="./images/iMac Settings.png" alt="">
+                        </div>
+                        <h3 class="service-title">Custom Websites</h3>
+                        <p class="service-description">
+                            Create websites tailored to fit your exact needs and vision.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="./images/Online Store.png" alt="">
+                        </div>
+                        <h3 class="service-title">Ecommerce Websites</h3>
+                        <p class="service-description">
+                            Build custom online stores designed to help you sell and grow your business.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="./images/Windows 10 Personalization.png" alt="">
+                        </div>
+                        <h3 class="service-title">UX/UI Design</h3>
+                        <p class="service-description">
+                            Create user-friendly designs that make your website easy to navigate and engaging.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="./images/Security Portal.png" alt="">
+                        </div>
+                        <h3 class="service-title">Security & Hosting</h3>
+                        <p class="service-description">
+                            Set up reliable hosting with strong security measures to ensure your website runs smoothly
+                            and
+                            stays protected.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="./images/Web Advertising.png" alt="">
+                        </div>
+                        <h3 class="service-title">SEO & Marketing</h3>
+                        <p class="service-description">
+                            Optimize your website for search engines and help you reach a wider audience through
+                            effective
+                            digital marketing strategies.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="./images/Processor.png" alt="">
+                        </div>
+                        <h3 class="service-title">AI Bots Integration</h3>
+                        <p class="service-description">
+                            Develop AI-powered bots to automate customer support, lead generation, and enhance user
+                            interaction.
+                        </p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="./images/iMac Settings.png" alt="">
+        <section class="works-wrapper" id="works">
+            <div class="works-section">
+                <h1 class="section-title">Recent Works</h1>
+
+                <div class="filter-nav">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="apps">Apps</button>
+                        <button class="filter-btn" data-filter="branding">Branding</button>
+                        <button class="filter-btn" data-filter="ux-ui">UX/UI</button>
                     </div>
-                    <h3 class="service-title">Custom Websites</h3>
-                    <p class="service-description">
-                        Create websites tailored to fit your exact needs and vision.
-                    </p>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="./images/Online Store.png" alt="">
+                <div class="works-grid">
+                    <div class="work-card" data-category="apps">
+                        <div class="work-image">
+                            <img src="images/starsky.png" alt="">
+                        </div>
+                        <div class="work-content">
+                            <h3 class="work-title">STARSKY.APP</h3>
+                            <p class="work-description">Starsky.app turns ideas into web apps instantly—just by
+                                describing
+                                them
+                                in plain English. No code, no developers—just pure speed.</p>
+                        </div>
+                        <a href="https://starsky.app" target="_blank" class="work-arrow">
+                            <img src="./images/arrow.svg" alt="Arrow">
+                        </a>
                     </div>
-                    <h3 class="service-title">Ecommerce Websites</h3>
-                    <p class="service-description">
-                        Build custom online stores designed to help you sell and grow your business.
-                    </p>
-                </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="./images/Windows 10 Personalization.png" alt="">
+                    <div class="work-card" data-category="apps">
+                        <div class="work-image">
+                            <img src="images/monzed.png" alt="">
+                        </div>
+                        <div class="work-content">
+                            <h3 class="work-title">MONZED.COM</h3>
+                            <p class="work-description">Your AI-Powered Development Agency, turning innovative ideas
+                                into reality with cutting-edge AI solutions, professional development, and design.</p>
+                        </div>
+                        <a href="https://monzed.com" target="_blank" class="work-arrow">
+                            <img src="./images/arrow.svg" alt="Arrow">
+                        </a>
                     </div>
-                    <h3 class="service-title">UX/UI Design</h3>
-                    <p class="service-description">
-                        Create user-friendly designs that make your website easy to navigate and engaging.
-                    </p>
-                </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="./images/Security Portal.png" alt="">
+                    <div class="work-card" data-category="ux-ui branding">
+                        <div class="work-image">
+                            <img src="images/booknestUIUX.png" alt="">
+                        </div>
+                        <div class="work-content">
+                            <h3 class="work-title">UTOPIA-BOOKNEST DESIGN</h3>
+                            <p class="work-description">A sleek, user-friendly design made for easy book discovery and
+                                checkout.
+                                Optimized for smooth browsing and a seamless shopping experience.</p>
+                        </div>
+                        <a href="https://www.figma.com/design/VNznSVZyCXxNmbbRBCWRm8/Utopia-BooksNest?node-id=1-3&t=wfpstBte0Jtllade-1"
+                            target="_blank" class="work-arrow">
+                            <img src="./images/arrow.svg" alt="Arrow">
+                        </a>
                     </div>
-                    <h3 class="service-title">Security & Hosting</h3>
-                    <p class="service-description">
-                        Set up reliable hosting with strong security measures to ensure your website runs smoothly and
-                        stays protected.
-                    </p>
-                </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="./images/Web Advertising.png" alt="">
+                    <div class="work-card" data-category="branding apps">
+                        <div class="work-image">
+                            <img src="images/mokashop.png" alt="">
+                        </div>
+                        <div class="work-content">
+                            <h3 class="work-title">MOKASHOP.CC</h3>
+                            <p class="work-description">Mokashop.cc is an online store offering a wide range of digital
+                                goods at
+                                affordable prices—fast, easy, and accessible for everyone.</p>
+                        </div>
+                        <a href="https://Mokashop.cc" target="_blank" class="work-arrow">
+                            <img src="./images/arrow.svg" alt="Arrow">
+                        </a>
                     </div>
-                    <h3 class="service-title">SEO & Marketing</h3>
-                    <p class="service-description">
-                        Optimize your website for search engines and help you reach a wider audience through effective
-                        digital marketing strategies.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="./images/Processor.png" alt="">
-                    </div>
-                    <h3 class="service-title">AI Bots Integration</h3>
-                    <p class="service-description">
-                        Develop AI-powered bots to automate customer support, lead generation, and enhance user
-                        interaction.
-                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        </section>
+
+        <section class="feedback-wrapper" id="testimonials">
+            <div class="feedback-section">
+                <header class="feedback-header">
+                    <h1>FEEDBACK</h1>
+                    <p>Real feedback. Real results. Hear it from our clients.</p>
+                </header>
+
+                <div class="testimonials-container">
+                    <div class="testimonials-column">
+                        <div class="testimonial-card">
+                            <h3>Baalla Ayoub</h3>
+                            <p class="title">Founder of Starsky.app</p>
+                            <blockquote>"Working with Sitevaa was a smooth and professional experience. They quickly
+                                understood our goals and delivered a clean, responsive website that perfectly matched
+                                our brand. Communication was clear, deadlines were met, and their support after launch
+                                was excellent. Highly recommended for anyone seeking quality web development services."
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-card">
+                            <h3>Ben.Anouar</h3>
+                            <p class="title">Founder of UtopiaBookNest</p>
+                            <blockquote>"The design was clean, modern, and perfectly captured our brand — truly
+                                impressive work by Sitevaa."</blockquote>
+                        </div>
+                    </div>
+
+                    <div class="testimonials-column">
+                        <div class="testimonial-card">
+                            <h3>Aziz Soufiane</h3>
+                            <p class="title">CEO of Monzed.com</p>
+                            <blockquote>"We had a great experience with Sitevaa. Their team was efficient, creative, and
+                                detail-oriented. They delivered a high-quality website on time and provided solid
+                                support throughout. We're very satisfied with the results."</blockquote>
+                        </div>
+                        <div class="testimonial-card">
+                            <h3>Baazi Morad</h3>
+                            <p class="title">Owner of Mokashop.cc</p>
+                            <blockquote>"Excellent service from start to finish. Sitevaa took our ideas and turned them
+                                into a functional, modern website. Their communication was timely, and the final product
+                                exceeded our expectations. Would gladly work with them again."</blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </div>
+    <script src="script.js"></script>
 </body>
+
 </html>

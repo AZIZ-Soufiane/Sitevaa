@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to top, #5EEAD4 0%, rgba(14, 14, 17) 100%);
+    background: radial-gradient(circle at bottom, #5EEAD4 0%, rgba(14, 14, 17) 95%);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -15,13 +15,13 @@ body {
 }
 
 .login-container {
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     padding: 60px 50px;
     width: 100%;
-    max-width: 450px;
+    max-width: 500px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
