@@ -20,6 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($email)) {
         $errors['email'] = 'Email is required';
     }
+    if(empty($phone)) {
+        $errors['phone'] = 'Phone number is required';
+    }
     if (empty($description)) {
         $errors['description'] = 'Project description is required';
     }
@@ -363,6 +366,9 @@ if (isset($_GET['success'])) {
                                    class="form-input" 
                                    placeholder="Phone" 
                                    value="<?php echo htmlspecialchars($_POST['phone'] ?? ''); ?>">
+                            <?php if (isset($errors['phone'])): ?>
+                                <div class="error-message"><?php echo $errors['phone']; ?></div>
+                            <?php endif; ?>
                         </div>
 
                         <div class="form-group">

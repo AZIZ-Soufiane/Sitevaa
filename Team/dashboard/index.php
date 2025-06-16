@@ -58,15 +58,15 @@ $requests = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="dashboard-stats">
                 <div class="stat-card">
                     <h3>Total Projects</h3>
-                    <div id="projectCount" class="stat-value">0</div>
+                    <div id="projectCount" class="stat-value">8</div>
                 </div>
                 <div class="stat-card">
                     <h3>Total Income</h3>
-                    <div id="totalIncome" class="stat-value">$0</div>
+                    <div id="totalIncome" class="stat-value">$20,000</div>
                 </div>
                 <div class="stat-card">
                     <h3>Active Tasks</h3>
-                    <div id="taskCount" class="stat-value">0</div>
+                    <div id="taskCount" class="stat-value">20</div>
                 </div>
             </div>
 
