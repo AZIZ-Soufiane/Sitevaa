@@ -1,0 +1,412 @@
+:root {
+    --bg-dark: rgb(14,14,17);
+    --accent-1: #40e0d0;
+    --accent-2: #00bfa5;
+    --text-light: #ffffff;
+    --text-gray: #8a8a8a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Arial', sans-serif;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: rgba(255,255,255,0.05);
+    padding: 2rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo img {
+    width: 150px;
+    margin-bottom: 2rem;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links a {
+    display: block;
+    padding: 1rem;
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-1);
+    background: rgba(64, 224, 208, 0.1);
+    border-radius: 8px;
+}
+
+.main-content {
+    padding: 2rem;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: rgba(255,255,255,0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-value {
+    font-size: 2rem;
+    color: var(--accent-1);
+    margin-top: 0.5rem;
+}
+
+.logout-btn {
+    background: var(--accent-2);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-role {
+    background: var(--accent-1);
+    color: var(--bg-dark);
+    padding: 0.2rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.user-name {
+    color: var(--text-light);
+}
+
+.error-message {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff6b6b;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.recent-requests {
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.recent-requests h2 {
+    color: var(--accent-1);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.requests-table {
+    overflow-x: auto;
+}
+
+.no-data {
+    text-align: center;
+    color: var(--text-gray);
+    padding: 30px !important;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+th {
+    background: rgba(255,255,255,0.05);
+    color: var(--accent-2);
+    font-weight: 500;
+}
+
+.client-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.client-name {
+    font-weight: 500;
+}
+
+.client-email {
+    font-size: 0.85em;
+    color: var(--text-gray);
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+
+.status-badge.pending {
+    background: rgba(255, 159, 67, 0.1);
+    color: #ffa53d;
+}
+
+.status-badge.approved {
+    background: rgba(46, 213, 115, 0.1);
+    color: #2ed573;
+}
+
+.status-badge.rejected {
+    background: rgba(255, 71, 87, 0.1);
+    color: #ff4757;
+}
+
+/* Invoice Generator Styles */
+.invoice-generator {
+    padding: 20px;
+}
+
+.invoice-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.services-list {
+    margin: 20px 0;
+}
+
+.service-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.service-item input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.service-item input[name="services[]"] {
+    flex: 2;
+}
+
+.service-item input[name="amounts[]"] {
+    flex: 1;
+}
+
+.remove-service {
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+.add-service-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.invoice-summary {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.invoice-summary > div {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 1.2em;
+    border-top: 2px solid #ddd;
+    padding-top: 10px;
+}
+
+.generate-invoice-btn {
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.recent-invoices {
+    margin-top: 30px;
+}
+
+.recent-invoices table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.recent-invoices th,
+.recent-invoices td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.access-denied {
+    text-align: center;
+    padding: 40px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 20px;
+}
+
+.access-denied h2 {
+    color: #ff4444;
+    margin-bottom: 10px;
+}
+
+.access-denied p {
+    color: #666;
+}
+
+
+.invoice-container {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.service-row {
+    margin-bottom: 10px;
+}
+
+.service-item {
+    display: flex;
+    gap: 10px;
+}
+
+.service-item input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.service-item input[name="services[]"] {
+    flex: 2;
+}
+
+.service-item input[name="amounts[]"] {
+    flex: 1;
+}
+
+.remove-btn {
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 30px;
+    cursor: pointer;
+}
+
+#addServiceBtn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.invoice-summary {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 4px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.total {
+    font-weight: bold;
+    border-top: 2px solid #ddd;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.submit-btn {
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 100%;
+}

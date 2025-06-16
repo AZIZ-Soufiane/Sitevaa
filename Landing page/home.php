@@ -1,3 +1,66 @@
+<?php
+error_reporting(E_ALL);
+require_once('../Team/config/db.php');
+
+$errors = [];
+$success = false;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $phone = trim($_POST['phone'] ?? '');
+    $budget = floatval($_POST['budget'] ?? 0);
+    $timeline = trim($_POST['timeline'] ?? '');
+    $description = trim($_POST['description'] ?? '');
+
+    if (empty($name)) {
+        $errors['name'] = 'Name is required';
+    }
+    if (empty($email)) {
+        $errors['email'] = 'Email is required';
+    }
+    if (empty($description)) {
+        $errors['description'] = 'Project description is required';
+    }
+
+
+    if (empty($errors)) {
+        try {
+            // Check if client exists
+            $checkStmt = $pdo->prepare("SELECT Client_Id FROM Client WHERE email = ?");
+            $checkStmt->execute([$email]);
+            $existingClient = $checkStmt->fetch();
+
+            if ($existingClient) {
+                $clientId = $existingClient['Client_Id'];
+            } else {
+                // Insert new client
+                $clientStmt = $pdo->prepare("INSERT INTO Client (name, email, phone) VALUES (?, ?, ?)");
+                $clientStmt->execute([$name, $email, $phone]);
+                $clientId = $pdo->lastInsertId();
+            }
+
+            // Insert project request
+            $requestStmt = $pdo->prepare("INSERT INTO Project_request (description, budget, timeline, status, Client_id) VALUES (?, ?, ?, 'pending', ?)");
+            $requestStmt->execute([$description, $budget, $timeline, $clientId]);
+            
+            $success = true;
+            // Redirect after successful submission
+            header('Location: home.php?success=1#contact');
+            exit();
+
+        } catch(PDOException $e) {
+            $errors['general'] = 'An error occurred. Please try again.';
+        }
+    }
+}
+
+// Show success message if redirected after submission
+if (isset($_GET['success'])) {
+    $success = true;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -259,35 +322,73 @@
                     <h1 class="contact-title">CONTACT US</h1>
                     <p class="quote">"Every great achievement begins as a simple idea."</p>
 
-                    <form>
+                    <?php if ($success): ?>
+                        <div class="success-message">
+                            Thank you! Your request has been submitted successfully.
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (isset($errors['general'])): ?>
+                        <div class="error-message general-error">
+                            <?php echo $errors['general']; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <form method="POST" action="home.php#contact" id="contactForm">
                         <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Name" required>
+                            <input type="text" 
+                                   name="name" 
+                                   class="form-input <?php echo isset($errors['name']) ? 'error' : ''; ?>" 
+                                   placeholder="Name" 
+                                   value="<?php echo htmlspecialchars($_POST['name'] ?? ''); ?>">
+                            <?php if (isset($errors['name'])): ?>
+                                <div class="error-message"><?php echo $errors['name']; ?></div>
+                            <?php endif; ?>
                         </div>
 
                         <div class="form-group">
-                            <input type="email" class="form-input" placeholder="Email" required>
+                            <input type="email" 
+                                   name="email" 
+                                   class="form-input <?php echo isset($errors['email']) ? 'error' : ''; ?>" 
+                                   placeholder="Email" 
+                                   value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
+                            <?php if (isset($errors['email'])): ?>
+                                <div class="error-message"><?php echo $errors['email']; ?></div>
+                            <?php endif; ?>
                         </div>
 
                         <div class="form-group">
-                            <input type="tel" class="form-input" placeholder="Phone" required>
+                            <input type="tel" 
+                                   name="phone" 
+                                   class="form-input" 
+                                   placeholder="Phone" 
+                                   value="<?php echo htmlspecialchars($_POST['phone'] ?? ''); ?>">
                         </div>
 
                         <div class="form-group">
-                            <select class="form-select" required>
-                                <option value="" disabled selected>Budget(Optional)</option>
-                                <option value="less-than-5k">Less than 5k</option>
-                                <option value="5k-to-15k">5k to 15k</option>
-                                <option value="15k-to-30k">15k to 30k</option>
-                                <option value="30k-and-more">30k and more</option>
+                            <select name="budget" class="form-select">
+                                <option value="" disabled <?php echo !isset($_POST['budget']) ? 'selected' : ''; ?>>Budget(Optional)</option>
+                                <option value="5000" <?php echo isset($_POST['budget']) && $_POST['budget'] == '5000' ? 'selected' : ''; ?>>Less than 5k</option>
+                                <option value="15000" <?php echo isset($_POST['budget']) && $_POST['budget'] == '15000' ? 'selected' : ''; ?>>5k to 15k</option>
+                                <option value="30000" <?php echo isset($_POST['budget']) && $_POST['budget'] == '30000' ? 'selected' : ''; ?>>15k to 30k</option>
+                                <option value="50000" <?php echo isset($_POST['budget']) && $_POST['budget'] == '50000' ? 'selected' : ''; ?>>30k and more</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <input type="date" class="form-input" placeholder="Due To Date(Optional)">
+                            <input type="date" 
+                                   name="timeline" 
+                                   class="form-input" 
+                                   value="<?php echo htmlspecialchars($_POST['timeline'] ?? ''); ?>">
                         </div>
 
                         <div class="form-group">
-                            <textarea class="form-textarea" placeholder="Project Description..." rows="5"></textarea>
+                            <textarea name="description" 
+                                      class="form-textarea <?php echo isset($errors['description']) ? 'error' : ''; ?>" 
+                                      placeholder="Project Description..."><?php echo htmlspecialchars($_POST['description'] ?? ''); ?></textarea>
+                            <?php if (isset($errors['description'])): ?>
+                                <div class="error-message"><?php echo $errors['description']; ?></div>
+                            <?php endif; ?>
                         </div>
 
                         <button type="submit" class="submit-btn">Submit Request</button>

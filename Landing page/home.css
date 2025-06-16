@@ -945,6 +945,11 @@ body {
     transform: translateY(-2px);
 }
 
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
 .contact-info {
     flex: 0 0 300px;
     display: flex;
@@ -1112,3 +1117,33 @@ body {
         text-align: center;
     }
 }
+
+.success-message {
+    background-color: rgba(46, 213, 115, 0.1);
+    color: #2ed573;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 3px solid #2ed573;
+}
+
+.error-message {
+    color: #ff4757;
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
+.form-input.error, 
+.form-textarea.error {
+    border-color: #ff4757;
+    background-color: rgba(255, 71, 87, 0.05);
+}
+
+.general-error {
+    background-color: rgba(255, 71, 87, 0.1);
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 3px solid #ff4757;
+}
+
