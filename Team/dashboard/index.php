@@ -17,6 +17,20 @@ $stmt = $pdo->query(" SELECT pr.*, c.name as client_name, c.email as client_emai
 
 $requests = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$stmt = $pdo->query("SELECT COUNT(*) FROM Project");
+$totalProjects = $stmt->fetchColumn();
+
+$stmt = $pdo->query("
+    SELECT SUM(i.amount) 
+    FROM Project p
+    JOIN Invoice i ON p.id_invoice = i.id_invoice
+    WHERE p.status != 'not_started'
+");
+$totalIncome = $stmt->fetchColumn();
+
+$stmt = $pdo->query("SELECT COUNT(*) FROM Task WHERE status = 'in_progress'");
+$activeTasks = $stmt->fetchColumn();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,15 +72,15 @@ $requests = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="dashboard-stats">
                 <div class="stat-card">
                     <h3>Total Projects</h3>
-                    <div id="projectCount" class="stat-value">8</div>
+                    <div id="projectCount" class="stat-value"><?php echo $totalProjects; ?></div>
                 </div>
                 <div class="stat-card">
                     <h3>Total Income</h3>
-                    <div id="totalIncome" class="stat-value">$20,000</div>
+                    <div id="totalIncome" class="stat-value">$<?php echo number_format($totalIncome, 2); ?></div>
                 </div>
                 <div class="stat-card">
                     <h3>Active Tasks</h3>
-                    <div id="taskCount" class="stat-value">20</div>
+                    <div id="taskCount" class="stat-value"><?php echo $activeTasks; ?></div>
                 </div>
             </div>
 
@@ -113,6 +127,5 @@ $requests = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div id="content-area"></div>
         </main>
     </div>
-    <script src="dashboard.js"></script>
 </body>
 </html>
