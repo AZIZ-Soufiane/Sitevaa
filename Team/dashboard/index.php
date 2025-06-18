@@ -21,7 +21,7 @@ $stmt = $pdo->query("SELECT COUNT(*) FROM Project");
 $totalProjects = $stmt->fetchColumn();
 
 $stmt = $pdo->query("
-    SELECT SUM(i.amount) 
+    SELECT SUM(i.amount)
     FROM Project p
     JOIN Invoice i ON p.id_invoice = i.id_invoice
     WHERE p.status != 'not_started'
@@ -54,7 +54,7 @@ $activeTasks = $stmt->fetchColumn();
                 <li><a href="TaskManagement.php" data-page="task-management">Task Management</a></li>
                 <?php endif; ?>
                 <li><a href="Tasks.php" data-page="tasks">My Tasks</a></li>
-                <li><a href="#" data-page="chat">Team Chat</a></li>
+                <li><a href="chat.php" data-page="chat">Team Chat</a></li>
             </ul>
         </nav>
         

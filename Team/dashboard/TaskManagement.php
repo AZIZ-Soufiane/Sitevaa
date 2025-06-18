@@ -112,7 +112,7 @@ $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <li><a href="TaskManagement.php" class="active" data-page="task-management">Task Management</a></li>
                 <?php endif; ?>
                 <li><a href="Tasks.php" data-page="tasks">My Tasks</a></li>
-                <li><a href="#" data-page="chat">Team Chat</a></li>
+                <li><a href="chat.php" data-page="chat">Team Chat</a></li>
             </ul>
         </nav>
         
