@@ -291,14 +291,23 @@ th {
 .recent-invoices table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
-.recent-invoices th,
+.recent-invoices th {
+    text-align: left;
+    padding: 12px;
+    background: #2d2d2d;
+    color: #e0e0e0;
+}
+
 .recent-invoices td {
     padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #404040;
+}
+
+.recent-invoices tr:hover {
+    background: #2d2d2d;
 }
 
 .access-denied {
@@ -320,93 +329,214 @@ th {
 }
 
 
+/* Invoice Container Styles */
 .invoice-container {
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 25px;
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group select {
+.invoice-form-wrapper {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.invoice-form {
+    display: grid;
+    gap: 20px;
+    background: #1a1a1a;
+}
+
+.invoice-form select,
+.invoice-form input {
+    width: 100%;
+    padding: 12px;
+    background: #2d2d2d;
+    border: 1px solid #404040;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.invoice-form select:focus,
+.invoice-form input:focus {
+    outline: none;
+    border-color: #40e0d0;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
 
 .service-row {
-    margin-bottom: 10px;
-}
-
-.service-item {
-    display: flex;
-    gap: 10px;
-}
-
-.service-item input {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.service-item input[name="services[]"] {
-    flex: 2;
-}
-
-.service-item input[name="amounts[]"] {
-    flex: 1;
-}
-
-.remove-btn {
-    background: #ff4444;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    width: 30px;
-    cursor: pointer;
-}
-
-#addServiceBtn {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    margin: 10px 0;
-    cursor: pointer;
-}
-
-.invoice-summary {
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
+    gap: 15px;
+    align-items: center;
     padding: 15px;
-    background: #f5f5f5;
-    border-radius: 4px;
+    background: #2d2d2d;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
 }
 
-.summary-item {
-    display: flex;
-    justify-content: space-between;
-    margin: 5px 0;
+.add-btn,
+.submit-btn,
+.remove-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-.total {
-    font-weight: bold;
-    border-top: 2px solid #ddd;
-    padding-top: 10px;
-    margin-top: 10px;
+.add-btn {
+    background: #00bfa5;
+    color: #e0e0e0;
+    font-weight: 600;
 }
 
 .submit-btn {
-    background: #2196F3;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 4px;
-    margin-top: 20px;
-    cursor: pointer;
-    width: 100%;
+    background: #40e0d0;
+    color: black;
+    font-weight: 600;
 }
+
+.remove-btn {
+    background: #e74c3c;
+    color: #e0e0e0;
+    padding: 8px 15px;
+}
+
+.add-btn:hover,
+.submit-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.remove-btn:hover {
+    background: #c0392b;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Status Select Styles */
+.status-select {
+    background: #2d2d2d;
+    color: #e0e0e0;
+    padding: 8px 12px;
+    border: 1px solid #404040;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.status-select option {
+    background: #2d2d2d;
+    color: #e0e0e0;
+    padding: 8px;
+}
+
+/* Status-specific styling */
+.status-select[data-status="sent"] {
+    border-left: 3px solid #db8534;
+}
+.status-select[data-status="sent"]:hover {
+    border-color: #db8534;
+}
+
+.status-select[data-status="approved"] {
+    border-left: 3px solid #2ecc71;
+}.status-select[data-status="approved"]:hover {
+    border-color: #2ecc71;
+}
+
+.status-select[data-status="rejected"] {
+    border-left: 3px solid #e74c3c;
+}.status-select[data-status="rejected"]:hover {
+    border-color: #e74c3c;
+}
+
+
+/* Project Page Styles */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.project-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-1);
+}
+
+.project-header {
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.project-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.project-client {
+    color: var(--text-gray);
+    font-size: 0.9em;
+}
+
+.project-budget {
+    color: var(--accent-1);
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.project-description {
+    color: var(--text-light);
+    margin: 15px 0;
+    max-height: 100px;
+    overflow-y: auto;
+    line-height: 1.5;
+}
+
+.status-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    background: #2d2d2d;
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.status-select:focus{
+    outline: none;
+    border-color: var(--accent-1);
+}
+
+.status-select[data-status="not_started"] { border-left: 3px solid #ff9f43; }
+.status-select[data-status="in_progress"] { border-left: 3px solid #1e90ff; }
+.status-select[data-status="completed"] { border-left: 3px solid #2ecc71; }
+.status-select[data-status="blocked"] { border-left: 3px solid #e74c3c; }
+.status-select[data-status="delivered"] { border-left: 3px solid #9b59b6; }
+.status-select[data-status="archived"] { border-left: 3px solid #95a5a6; }

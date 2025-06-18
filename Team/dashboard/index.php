@@ -34,10 +34,10 @@ $requests = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <ul class="nav-links">
                 <?php if ($isAdmin): ?>
-                <li><a href="#" class="active" data-page="overview">Overview</a></li>
-                <li><a href="#" data-page="invoice-generator">Invoice Generator</a></li>
+                <li><a href="index.php" class="active" data-page="overview">Overview</a></li>
+                <li><a href="invoice.php" data-page="invoice-generator">Invoice Generator</a></li>
+                <li><a href="projects.php" data-page="projects">Projects</a></li>
                 <li><a href="#" data-page="task-management">Task Management</a></li>
-                <li><a href="#" data-page="projects">Projects</a></li>
                 <?php endif; ?>
                 <li><a href="#" data-page="tasks">My Tasks</a></li>
                 <li><a href="#" data-page="chat">Team Chat</a></li>
