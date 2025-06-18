@@ -540,3 +540,409 @@ th {
 .status-select[data-status="blocked"] { border-left: 3px solid #e74c3c; }
 .status-select[data-status="delivered"] { border-left: 3px solid #9b59b6; }
 .status-select[data-status="archived"] { border-left: 3px solid #95a5a6; }
+
+
+
+/* Task Management Styles */
+.task-form-container {
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    margin-bottom: 25px;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-light);
+}
+
+.task-form-container h2 {
+    color: var(--accent-1);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.task-form {
+    display: grid;
+    grid-gap: 20px;
+    max-width: 800px;
+}
+
+.form-group {
+    display: grid;
+    grid-gap: 8px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 12px;
+    background: rgba(45,45,45,0.8);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    color: var(--text-light);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-1);
+    box-shadow: 0 0 0 2px rgba(64, 224, 208, 0.2);
+}
+
+.form-group select option {
+    background: #2d2d2d;
+    color: var(--text-light);
+}
+
+.tasks-list {
+    margin-top: 30px;
+}
+
+.tasks-list h2 {
+    color: var(--accent-1);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.task-card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-color: rgba(64, 224, 208, 0.3);
+}
+
+.task-info h3 {
+    color: var(--text-light);
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.task-info p {
+    color: var(--text-gray);
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.task-deadline {
+    color: var(--accent-1);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.status-todo { 
+    background: rgba(255, 159, 67, 0.15); 
+    color: #ffa53d; 
+    border-radius: 25px;
+}
+
+.status-in_progress { 
+    background: rgba(30, 144, 255, 0.15); 
+    color: #1e90ff;
+    border-radius: 25px; 
+}
+
+.status-review { 
+    background: rgba(46, 213, 115, 0.15); 
+    color: #2ed573;
+    border-radius: 25px; 
+}
+
+.status-done { 
+    background: rgba(0, 191, 165, 0.15); 
+    color: #00bfa5;
+    border-radius: 25px; 
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    color: #000;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(64, 224, 208, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.alert.success {
+    background: rgba(46, 213, 115, 0.1);
+    color: #2ed573;
+    border: 1px solid rgba(46, 213, 115, 0.2);
+}
+
+.alert.error {
+    background: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+
+/* Task Management Styles */
+.task-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    display: grid;
+    grid-template-areas: 
+        "title title status"
+        "info info deadline"
+        "controls controls controls";
+    gap: 20px;
+}
+
+.task-card h3 {
+    grid-area: title;
+    color: var(--accent-1);
+    font-size: 1.2rem;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.task-info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-info p {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: rgba(0,0,0,0.15);
+    padding: 12px;
+    border-radius: 8px;
+    margin: 0;
+}
+
+.task-info strong {
+    color: var(--accent-2);
+    font-size: 0.9rem;
+}
+
+.task-deadline {
+    grid-area: deadline;
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    align-self: start;
+}
+
+.current-status,
+.task-status {
+    grid-area: status;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.status-controls,
+.task-controls {
+    grid-area: controls;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+/* Status Badge Styles */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    min-width: 100px;
+}
+
+/* Status Button Styles */
+.status-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Status-specific button styles */
+.status-btn.status-in_progress {
+    background: rgba(30, 144, 255, 0.15);
+    color: #1e90ff;
+    border: 1px solid rgba(30, 144, 255, 0.3);
+}
+
+.status-btn.status-review {
+    background: rgba(255, 165, 0, 0.15);
+    color: #ffa500;
+    border: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+.status-btn.status-done {
+    background: rgba(46, 213, 115, 0.15);
+    color: #2ed573;
+    border: 1px solid rgba(46, 213, 115, 0.3);
+}
+
+/* Hover effects */
+.status-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.status-btn.status-in_progress:hover {
+    background: rgba(30, 144, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(30, 144, 255, 0.2);
+}
+
+.status-btn.status-review:hover {
+    background: rgba(255, 165, 0, 0.25);
+    box-shadow: 0 4px 12px rgba(255, 165, 0, 0.2);
+}
+
+.status-btn.status-done:hover {
+    background: rgba(46, 213, 115, 0.25);
+    box-shadow: 0 4px 12px rgba(46, 213, 115, 0.2);
+}
+
+/* Active state */
+.status-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Status controls container */
+.status-controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* Mark as Done Button Styles */
+.action-btn {
+    padding: 10px 20px;
+    background: rgba(46, 213, 115, 0.15);
+    color: #2ed573;
+    border: 1px solid rgba(46, 213, 115, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 150px;
+}
+
+.action-btn:hover {
+    background: rgba(46, 213, 115, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 213, 115, 0.2);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.action-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(46, 213, 115, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .task-card {
+        grid-template-areas: 
+            "title"
+            "status"
+            "info"
+            "deadline"
+            "controls";
+    }
+
+    .current-status,
+    .task-status {
+        align-items: flex-start;
+    }
+
+    .status-controls,
+    .task-controls {
+        justify-content: flex-start;
+    }
+
+    .status-controls {
+        justify-content: stretch;
+    }
+    
+    .status-btn {
+        width: 100%;
+        min-width: unset;
+    }
+}

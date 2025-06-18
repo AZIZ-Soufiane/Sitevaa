@@ -36,7 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_SESSION['name'] = $user['name'];
                     $_SESSION['role'] = $user['role'];
                     
-                    header('Location: dashboard/index.php');
+                    if($user['role'] === 'admin') {
+                        header('Location: dashboard/index.php');                   
+                    }
+                    else{
+                    header('Location: dashboard/Tasks.php');
+                    }
                     exit();
                 }
             }

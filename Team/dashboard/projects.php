@@ -57,9 +57,9 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <li><a href="index.php" data-page="overview">Overview</a></li>
                 <li><a href="invoice.php" data-page="invoice-generator">Invoice Generator</a></li>
                 <li><a href="projects.php" class="active" data-page="projects">Projects</a></li>
-                <li><a href="#" data-page="task-management">Task Management</a></li>
+                <li><a href="TaskManagement.php" data-page="task-management">Task Management</a></li>
                 <?php endif; ?>
-                <li><a href="#" data-page="tasks">My Tasks</a></li>
+                <li><a href="Tasks.php" data-page="tasks">My Tasks</a></li>
                 <li><a href="#" data-page="chat">Team Chat</a></li>
             </ul>
         </nav>
@@ -87,7 +87,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <div class="project-budget">Budget: $<?php echo number_format($project['project_budget'], 2); ?></div>
                         </div>
                         <div class="project-description">
-                            <?php echo (htmlspecialchars($project['request_description'])); ?>
+                            <?php echo ucfirst(htmlspecialchars($project['request_description'])); ?>
                         </div>
                         <div class="project-status">
                             <form method="POST">
